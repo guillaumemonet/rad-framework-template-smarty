@@ -7,6 +7,9 @@
             "email": "guillaume.monet@free.fr"
         }
     ],
+
+    "license": "MIT",
+
     "autoload": {
         "psr-4": {
             "Rad\\": "src/Rad/"
