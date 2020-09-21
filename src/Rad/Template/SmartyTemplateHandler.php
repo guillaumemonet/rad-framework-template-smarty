@@ -26,6 +26,7 @@
 
 namespace Rad\Template;
 
+use Rad\Cache\Cache;
 use Rad\Config\Config;
 use Smarty;
 
@@ -41,10 +42,15 @@ class SmartyTemplateHandler extends Smarty implements TemplateInterface {
         $this->caching = (int) $config->caching;
         $this->cache_locking = 1;
         $this->cache_lifetime = (int) $config->cache_lifetime;
-        $this->template_dir = Config::getConfig()->api->path . $config->template_dir;
-        $this->compile_dir = Config::getConfig()->api->path . $config->compile_dir;
-        $this->config_dir = Config::getConfig()->api->path . $config->config_dir;
-        $this->cache_dir = Config::getConfig()->api->path . $config->cache_dir;
+        $this->template_dir = $config->template_dir;
+        $this->compile_dir = $config->compile_dir;
+        $this->config_dir = $config->config_dir;
+        $this->cache_dir = $config->cache_dir;
+    }
+
+    public function setCacheResource(string $name, Cache $cache) {
+        $this->registerCacheResource($name, $cache);
+        $this->caching_type = $name;
     }
 
 }

@@ -12,7 +12,8 @@
             "template_dir": "templates/",
             "compile_dir": "cache/",
             "config_dir": "config/",
-            "cache_dir": "cache/"
+            "cache_dir": "cache/",
+            "cache_type": "smarty"
         }
     }
 }
